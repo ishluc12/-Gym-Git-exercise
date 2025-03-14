@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>createElement and appendChild Example</title>
+</head>
+<body>
+
+  <div id="myContainer">
+    <p>Existing paragraph.</p>
+  </div>
+
+  <p class="p">hello world</p>
+  <button id="increase">increase</button>
+  <button id="addButton">Add New Paragraph</button>
+
+
+  <ul id="myList1">
+    <li>Coffee</li>
+    <li>Tea</li>
+  </ul>
+  <ul id="myList2">
+    <li>Water</li>
+    <li>Milk</li>
+    <li>Juice</li>
+  </ul>
+  <button onclick="myFunction()">Try it</button>
+<button id="leave" onmousedown="mt(this)" onmouseup="mp(this)">leave</button>
+
+  <script>
+
+function myFunction(){
+    const node=document.getElementById('myList2').firstElementChild;
+    const list=document.getElementById('myList1');
+    list.append(node, list.children[0]);
+}
+    const container = document.getElementById('myContainer');
+    const addButton = document.getElementById('addButton');
+
+    addButton.addEventListener('click', () => {
+      // 1. Create a new paragraph element
+      const newParagraph = document.createElement('p');
+
+      // 2. Create a text node for the paragraph
+      const paragraphText = document.createTextNode('This is a dynamically created paragraph.');
+
+      // 3. Append the text node to the paragraph element
+      newParagraph.appendChild(paragraphText);
+
+      // 4. Append the new paragraph element to the container div
+      container.appendChild(newParagraph);
+    });
+    let check=document.getElementsByClassName('p');
+    let increase=document.getElementById('increase')
+    increase.addEventListener('click',() => { 
+        let currentFontSize = parseFloat(window.getComputedStyle(check).fontSize);
+        check.style.fontSize=(currentFontSize+1)+'px';
+    })
+
+    let leave=document.getElementById('leave');
+    function mt(obj){
+        obj.style.backgroundColor='red';
+    }
+  </script>
+
+</body>
+</html>

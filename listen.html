@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDIV {
+          background-color: coral;
+          padding: 16px;
+        }
+        </style>
+</head>
+<body>
+    <h1>The element Object</h1>
+    
+    <div id="myDIV">
+        hello there, how are u doing.
+        <p>What are you doing.</p>
+        <button onclick="removeHandler()"> Remove</button>
+       
+    </div>
+        <p id="demo"></p>
+
+    <script>
+        const myDIV=document.getElementById("myDIV");
+        myDIV.addEventListener("mouseover",myFunction);
+           function removeHandler(){
+            myDIV.removeEventListener("mouseover",myFunction);
+           } 
+
+           function myFunction(){
+            document.getElementById("demo").innerHTML=Math.random();
+           }
+    </script>
+
+</body>
+</html>
